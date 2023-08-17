@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.countdown"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.countdown"
         minSdk = 29
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -68,6 +68,7 @@ dependencies {
 //    implementation "androidx.compose.ui:ui-tooling:$compose_version"
 //    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
     implementation ("com.github.jakhongirmadaminov:glassmorphic-composables:0.0.4")
+    implementation(libs.androidx.animation.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

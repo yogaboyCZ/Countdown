@@ -1,23 +1,12 @@
-/*
- * Copyright 2021 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.example.androiddevchallenge.components
+package com.example.countdown.components
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -35,6 +24,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Pause
 import androidx.compose.material.icons.rounded.Stop
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -43,10 +33,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import com.example.countdown.ui.theme.green
 import com.example.countdown.ui.theme.greenDark
@@ -74,8 +66,9 @@ fun Controllers(
 internal fun Stop(onStop: () -> Unit) {
     Button(
         color = purpleLightest,
-        onClick = onStop
-    ) {
+        onClick = onStop,
+
+        ) {
         Icon(
             imageVector = Icons.Rounded.Stop,
             contentDescription = "Stop",
@@ -130,11 +123,11 @@ internal fun Button(
     val isPressed by interaction.collectIsPressedAsState()
     val colorAnimated by animateColorAsState(
         targetValue = if (isPressed) color else Color.White,
-        animationSpec = tween(400)
+        animationSpec = tween(400), label = ""
     )
     val elevation by animateDpAsState(
         targetValue = if (isPressed) 3.dp else 8.dp,
-        animationSpec = tween(400)
+        animationSpec = tween(400), label = ""
     )
     val brush = Brush.verticalGradient(listOf(color, colorAnimated))
     Box(
@@ -147,9 +140,62 @@ internal fun Button(
             .aspectRatio(1f)
             .clickable(
                 interactionSource = interaction,
-                indication = null,
+                indication = rememberRipple(
+                    bounded = true,
+                    radius = 250.dp,
+                    color = Color.Green
+                ),
                 onClick = onClick
-            ),
+            )
+//            .bouncingClickable {
+//                println("Clicked...")
+//            }
+        ,
         content = content
     )
+}
+
+/**
+ * Adds a bouncing click effect to a Composable.
+ *
+ * @param enabled whether the UI element should be enabled and clickable
+ * @param onClick the action to perform when the UI element is clicked
+ */
+fun Modifier.bouncingClickable(
+    enabled: Boolean = true,
+    onClick: () -> Unit
+) = composed {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+
+    val animationTransition = updateTransition(isPressed, label = "BouncingClickableTransition")
+
+    val scaleFactor by animationTransition.animateFloat(
+        targetValueByState = { pressed -> if (pressed) 0.84f else 1f },
+        label = "BouncingClickableScaleFactorTransition",
+        transitionSpec = {
+            spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessLow
+            )
+        }
+    )
+
+    val opacity by animationTransition.animateFloat(
+        targetValueByState = { pressed -> if (pressed) 0.7f else 1f },
+        label = "BouncingClickableOpacityTransition"
+    )
+
+    this
+        .graphicsLayer {
+            this.scaleX = scaleFactor
+            this.scaleY = scaleFactor
+            this.alpha = opacity
+        }
+        .clickable(
+            interactionSource = interactionSource,
+            indication = null,
+            enabled = enabled,
+            onClick = onClick
+        )
 }
