@@ -37,6 +37,7 @@ import com.example.countdown.components.Chrono
 import com.example.countdown.components.Controllers
 import com.example.androiddevchallenge.ui.theme.SystemUiController
 import com.example.countdown.components.Button
+import com.example.countdown.components.CustomDialog
 import com.example.countdown.ui.theme.CountdownTheme
 import com.example.countdown.ui.theme.greenDark
 import com.example.countdown.ui.theme.grey
@@ -105,6 +106,8 @@ class MainActivity : ComponentActivity() {
                 }
 
                 Spacer(modifier = Modifier.weight(0.6f))
+                val showDialog = remember { mutableStateOf(true) }
+
                 Button(
                     color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier.padding(32.dp),
@@ -123,6 +126,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 
 @Composable
 fun CountdownTimer(
