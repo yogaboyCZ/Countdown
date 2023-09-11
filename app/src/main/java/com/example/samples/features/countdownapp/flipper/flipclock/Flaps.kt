@@ -1,4 +1,4 @@
-package com.example.countdown.ui.flipclock
+package com.example.samples.features.countdownapp.flipper.flipclock
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.example.countdown.components
+package com.example.samples.features.countdownapp.flipper
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -25,9 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
-import com.example.countdown.ui.theme.purple
-import com.example.countdown.ui.theme.purpleDark
-import com.example.countdown.ui.theme.purpleLight
+import com.example.samples.ui.theme.purple
+import com.example.samples.ui.theme.purpleDark
+import com.example.samples.ui.theme.purpleLight
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin

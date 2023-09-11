@@ -1,4 +1,4 @@
-package com.example.countdown.ui.flipclock
+package com.example.samples.features.countdownapp.flipper.flipclock
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,9 +8,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.androiddevchallenge.ui.animateFloatAsState
-import com.example.countdown.utils.getTimeParts
-import com.example.countdown.R
+import com.example.samples.R
+import com.example.samples.ui.animateFloatAsState
+import com.example.samples.utils.getTimeParts
 import kotlin.math.ceil
 
 @Composable

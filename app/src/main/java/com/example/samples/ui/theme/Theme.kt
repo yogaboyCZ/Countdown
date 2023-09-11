@@ -1,4 +1,4 @@
-package com.example.countdown.ui.theme
+package com.example.samples.ui.theme
 
 import android.app.Activity
 import android.os.Build

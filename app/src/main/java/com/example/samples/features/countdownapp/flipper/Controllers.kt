@@ -1,4 +1,4 @@
-package com.example.countdown.components
+package com.example.samples.features.countdownapp.flipper
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
@@ -40,10 +40,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
-import com.example.countdown.ui.theme.green
-import com.example.countdown.ui.theme.greenDark
-import com.example.countdown.ui.theme.purpleDark
-import com.example.countdown.ui.theme.purpleLightest
+import com.example.samples.ui.theme.green
+import com.example.samples.ui.theme.greenDark
+import com.example.samples.ui.theme.purpleDark
+import com.example.samples.ui.theme.purpleLightest
 
 @Composable
 fun Controllers(

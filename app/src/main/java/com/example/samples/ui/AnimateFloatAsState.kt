@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui
+package com.example.samples.ui
 
 import androidx.compose.animation.core.AnimationState
 import androidx.compose.animation.core.Spring

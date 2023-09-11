@@ -1,4 +1,4 @@
-package com.example.countdown.components
+package com.example.samples.features.countdownapp.flipper
 
 import android.os.SystemClock
 import android.text.format.DateUtils
@@ -25,9 +25,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.countdown.ui.flipclock.FlipClock
-import com.example.countdown.ui.flipclock.FlipClockEvents
-import com.example.countdown.R
+import com.example.samples.R
+import com.example.samples.features.countdownapp.flipper.flipclock.FlipClock
+import com.example.samples.features.countdownapp.flipper.flipclock.FlipClockEvents
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

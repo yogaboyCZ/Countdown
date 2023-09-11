@@ -1,4 +1,4 @@
-package com.example.countdown.ui.theme
+package com.example.samples.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

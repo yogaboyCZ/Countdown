@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.countdown.utils
+package com.example.samples.utils
 
 fun getTimeParts(seconds: Int): TimeParts {
     val partHours = seconds / 60 / 60

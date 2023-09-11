@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.samples.ui.theme
 
 // Taken from
 // https://gist.github.com/chrisbanes/ab31bf7b67b77948157687af010f0667#file-systemui-kt

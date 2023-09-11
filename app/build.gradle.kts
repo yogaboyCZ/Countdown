@@ -1,15 +1,14 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    namespace = "com.example.countdown"
+    namespace = "com.example.samples"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.countdown"
+        applicationId = "com.example.samples"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -41,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -64,7 +63,7 @@ dependencies {
 //    implementation 'com.google.android.material:material:1.3.0'
 //    implementation "androidx.compose.ui:ui:$compose_version"
 //    implementation "androidx.compose.material:material:$compose_version"
-    implementation ("androidx.compose.material:material-icons-extended:1.4.3")
+    implementation ("androidx.compose.material:material-icons-extended:1.5.0")
 //    implementation "androidx.compose.ui:ui-tooling:$compose_version"
 //    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
     implementation ("com.github.jakhongirmadaminov:glassmorphic-composables:0.0.4")

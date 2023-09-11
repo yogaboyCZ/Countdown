@@ -1,4 +1,4 @@
-package com.example.countdown
+package com.example.samples
 
 import org.junit.Test
 

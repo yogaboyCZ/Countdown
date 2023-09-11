@@ -1,4 +1,4 @@
-package com.example.countdown.components
+package com.example.samples.features.countdownapp.flipper
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.TweenSpec

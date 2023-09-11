@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.countdown
+package com.example.samples.features.countdownapp.countdowncircle
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
